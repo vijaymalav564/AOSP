@@ -14,7 +14,7 @@ mka api-stubs-docs || echo no problem, we need ccache
 mka system-api-stubs-docs || echo no problem we need ccache
 mka test-api-stubs-docs || echo no problem, we need ccache
 mka bacon -j$(nproc --all) &
-sleep 85m
+sleep 30m
 kill %1
 ccache -s
 
