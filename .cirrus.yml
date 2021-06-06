@@ -5,7 +5,7 @@ env:
     rclone_config: "ENCRYPTED[b15a6c4c98b97843170eb58a96e93ff70c1125cdb6109e3ea5760d3674f0b0a3086b379e477abdd4b55fcc31637c107c]"
 
 task:
-    name: LineageOS
+    name: LineageOS-18.1
     timeout_in: 120m
     container:
         image: dopaemon/android2:latest
