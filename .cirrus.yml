@@ -2,7 +2,7 @@ env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
 
-    rclone_config: "ENCRYPTED[b15a6c4c98b97843170eb58a96e93ff70c1125cdb6109e3ea5760d3674f0b0a3086b379e477abdd4b55fcc31637c107c]"
+    rclone_config: "ENCRYPTED[52ba5b781cdddab2370f378967c038411d5d343339beaa42bde862925a5f975dfbbb761566b5021f77b27cbfa6c37e16]"
 
 task:
     name: LineageOS-18.1 # Build 1
