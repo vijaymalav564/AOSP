@@ -8,7 +8,7 @@ task:
     name: LineageOS-18.1 # Build 1
     timeout_in: 120m
     container:
-        image: dopaemon/android2:latest
+        image: apon77/aosp:latest
         cpu: 8
         memory: 32G
     download_ccache_background_script:
