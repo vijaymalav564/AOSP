@@ -17,7 +17,3 @@ mka bacon -j$(nproc --all)
 # sleep 45m
 # kill %1
 ccache -s
-
-
-time rclone copy /tmp/rom/out/target/product/whyred/lineage*whyred.zip doraemon:mirrors/lineage -P 
-
