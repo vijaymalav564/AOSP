@@ -12,3 +12,7 @@ time com ccache 1
 mkdir -p ~/.config/rclone
 echo "$rclone_config" > ~/.config/rclone/rclone.conf
 time rclone copy ccache.tar.gz doraemon:mirrors/lineage -P
+
+cd /tmp/rom/out/target/product/whyred
+
+time rclone copy lineage*whyred.zip doraemon:mirrors/lineage -P
