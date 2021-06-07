@@ -18,6 +18,6 @@ mka bacon -j$(nproc --all) &
 # kill %1
 # ccache -s
 
-up(){
-	time rclone copy /tmp/rom/out/target/product/whyred/lineage*whyred.zip doraemon:mirrors/lineage -P 
-}
+
+time rclone copy /tmp/rom/out/target/product/whyred/lineage*whyred.zip doraemon:mirrors/lineage -P 
+
