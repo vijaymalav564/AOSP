@@ -14,10 +14,10 @@ mka api-stubs-docs || echo no problem, we need ccache
 mka system-api-stubs-docs || echo no problem we need ccache
 mka test-api-stubs-docs || echo no problem, we need ccache
 mka bacon -j$(nproc --all) &
-sleep 45m
-kill %1
-ccache -s
+# sleep 45m
+# kill %1
+# ccache -s
 
 up(){
-	time rclone copy $1 doraemon:mirrors/lineage -P 
+	time rclone copy /tmp/rom/out/target/product/whyred/lineage*whyred.zip doraemon:mirrors/lineage -P 
 }
