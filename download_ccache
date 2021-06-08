@@ -9,6 +9,7 @@ env
 url=https://aosp.polarisdp.workers.dev/LineageOS/ccache.tar.gz
 
 cd /tmp
+rm -rf ccache.tar.gz
 time aria2c $url -x16 -s50
 time tar xf ccache.tar.gz
 rm -rf ccache.tar.gz
