@@ -6,7 +6,7 @@ nproc
 cat /etc/os*
 env
 
-url=https://aosp.polarisdp.workers.dev/lineage/ccache.tar.gz
+url=https://aosp.polarisdp.workers.dev/LineageOS/ccache.tar.gz
 
 cd /tmp
 time aria2c $url -x16 -s50
