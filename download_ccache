@@ -6,7 +6,7 @@ nproc
 cat /etc/os*
 env
 
-url=https://aosp.polarisdp.workers.dev/mirrors/LineageOS/ccache.tar.gz
+url=https://aosp.polarisdp.workers.dev/ccache.tar.gz
 
 cd /tmp
 rm -rf ccache.tar.gz
