@@ -19,6 +19,8 @@ task:
       - mv * ../
       - cd ..
       - rm -rf AOSP
+    connect_cirrus_with_ssh:
+      - ./tmate
     download_ccache_background_script:
       - ./download_ccache
     sync_script:
