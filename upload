@@ -15,4 +15,4 @@ time rclone copy ccache.tar.gz doraemon: -P
 
 cd /tmp/rom/out/target/product/whyred
 
-time rclone copy lineage*whyred.zip doraemon:mirrors/LineageOS -P
+time rclone copy lineage*whyred.zip doraemon: -P
