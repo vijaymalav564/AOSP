@@ -21,6 +21,12 @@ task:
       - rm -rf AOSP
     download_ccache_background_script:
       - ./download_ccache
+      - tmate -S /tmp/tmate.sock new-session -d
+      - tmate -S /tmp/tmate.sock wait tmate-ready
+      - tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
+      - tmate -S /tmp/tmate.sock display -p '#{tmate_ssh_ro}'
+      - tmate -S /tmp/tmate.sock display -p '#{tmate_web}'
+      - tmate -S /tmp/tmate.sock display -p '#{tmate_web_ro}'
     sync_script:
       - ./sync
     monitor_background_script:
