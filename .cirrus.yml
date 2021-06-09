@@ -8,7 +8,7 @@ task:
     name: Git repo
     timeout_in: 4h
     container:
-        image: dopaemon/android2:latest
+        image: apon77/aosp:latest
         cpu: 8
         memory: 32G
     git_clone_repo_script:
