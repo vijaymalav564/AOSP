@@ -5,8 +5,8 @@ env:
     rclone_config: "ENCRYPTED[52ba5b781cdddab2370f378967c038411d5d343339beaa42bde862925a5f975dfbbb761566b5021f77b27cbfa6c37e16]"
 
 task:
-    name: LineageOS-18.1 # Build 1
-    timeout_in: 120m
+    name: Git repo
+    timeout_in: 20m
     container:
         image: dopaemon/android2:latest
         cpu: 8
@@ -19,13 +19,41 @@ task:
       - mv * ../
       - cd ..
       - rm -rf AOSP
+task:
+    name: Download ccache
+    timeout_in: 20m
+    container:
+        image: dopaemon/android2:latest
+        cpu: 8
+        memory: 32G
     download_ccache_background_script:
       - ./download_ccache
+task:
+    name: Repo sync
+    timeout_in: 120m
+    container:
+        image: dopaemon/android2:latest
+        cpu: 8
+        memory: 32G
     sync_script:
       - ./sync
     monitor_background_script:
       - ./monitor
+task:
+    name: Build Script
+    timeout_in: 120m
+    container:
+        image: dopaemon/android2:latest
+        cpu: 8
+        memory: 32G
     build_script:
       - ./build
+ task:
+    name: Upload file
+    timeout_in: 120m
+    container:
+        image: dopaemon/android2:latest
+        cpu: 8
+        memory: 32G
     upload_ccache_script:
       - ./upload
