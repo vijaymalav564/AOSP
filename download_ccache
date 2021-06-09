@@ -6,11 +6,9 @@ nproc
 cat /etc/os*
 env
 
-url=https://aosp.polarisdp.workers.dev/ccache.tar.gz
-
 cd /tmp
 rm -rf ccache.tar.gz
-time aria2c $url -x16 -s50
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1NSOBFfpgjx5dQclFnDfbRFb0SBWeovID' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1NSOBFfpgjx5dQclFnDfbRFb0SBWeovID" -O ccache.tar.gz && rm -rf /tmp/cookies.txt
 ls -lash
 time tar xf ccache.tar.gz
 rm -rf ccache.tar.gz
