@@ -4,7 +4,7 @@ mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
 repo init -q --no-repo-verify --depth=1 -u https://github.com/LineageOS/android.git -b lineage-18.1 -g default,-device,-mips,-darwin,-notdefault
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+repo sync -v -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 
 git clone -b lineage-18.1 --single-branch https://github.com/LineageOS/android_device_xiaomi_whyred device/xiaomi/whyred
 git clone -b lineage-18.1 --single-branch https://github.com/LineageOS/android_kernel_xiaomi_sdm660.git kernel/xiaomi/sdm660
