@@ -19,7 +19,6 @@ task:
       - mv * ../
       - cd ..
       - rm -rf AOSP
-      - ./tmate
     download_ccache_background_script:
       - ./download_ccache
     sync_script:
