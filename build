@@ -22,6 +22,6 @@ make api-stubs-docs || echo no problem, we need ccache
 make system-api-stubs-docs || echo no problem we need ccache
 make test-api-stubs-docs || echo no problem, we need ccache
 mka bacon -j$(nproc --all) & # dont remove that '&'
-sleep 70m
+sleep 65m
 kill %1
 ccache -s
