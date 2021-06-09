@@ -19,41 +19,13 @@ task:
       - mv * ../
       - cd ..
       - rm -rf AOSP
-task:
-    name: Download ccache
-    timeout_in: 20m
-    container:
-        image: dopaemon/android2:latest
-        cpu: 8
-        memory: 32G
     download_ccache_background_script:
       - ./download_ccache
-task:
-    name: Repo sync
-    timeout_in: 120m
-    container:
-        image: dopaemon/android2:latest
-        cpu: 8
-        memory: 32G
     sync_script:
       - ./sync
     monitor_background_script:
       - ./monitor
-task:
-    name: Build Script
-    timeout_in: 120m
-    container:
-        image: dopaemon/android2:latest
-        cpu: 8
-        memory: 32G
     build_script:
       - ./build
- task:
-    name: Upload file
-    timeout_in: 120m
-    container:
-        image: dopaemon/android2:latest
-        cpu: 8
-        memory: 32G
     upload_ccache_script:
       - ./upload
