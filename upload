@@ -8,7 +8,7 @@ com()
     tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
 }
 
-time com ccache 1
+# time com ccache 1
 
 mkdir -p ~/.config/rclone
 
@@ -16,7 +16,7 @@ echo "$rclone_config" > ~/.config/rclone/rclone.conf
 
 ls -lash
 
-time rclone copy -v ccache.tar.gz doraemon:
+# time rclone copy -v ccache.tar.gz doraemon:
 
 cd /tmp/rom/out/target/product/whyred
 
