@@ -6,7 +6,7 @@ env:
 
 task:
     name: Git repo
-    timeout_in: 20m
+    timeout_in: 4h
     container:
         image: dopaemon/android2:latest
         cpu: 8
