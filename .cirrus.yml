@@ -8,7 +8,7 @@ task:
     name: LineageOS-18.1 # Build 1
     timeout_in: 120m
     container:
-        image: apon77/aosp:latest
+        image: dopaemon/android2:latest
         cpu: 8
         memory: 32G
     git_clone_repo_script:
