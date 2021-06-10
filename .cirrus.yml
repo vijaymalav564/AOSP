@@ -3,14 +3,15 @@ env:
     CIRRUS_WORKING_DIR: "/tmp/ci"
 
     rclone_config: "ENCRYPTED[52ba5b781cdddab2370f378967c038411d5d343339beaa42bde862925a5f975dfbbb761566b5021f77b27cbfa6c37e16]"
-
+    
 task:
-    name: Git repo
-    timeout_in: 4h
-    container:
-        image: apon77/aosp:latest
-        cpu: 8
-        memory: 32G
+  name: Repo sync
+  timeout_in: 60m
+  container:
+    image: apon77/aosp:latest
+    cpu: .7
+    memory: 2G
+task:
     git_clone_repo_script:
       - rm -rf download_ccache sync monitor build upload_ccache
       - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/KernelPanic-OpenSource/AOSP
@@ -21,17 +22,32 @@ task:
       - rm -rf AOSP
     download_ccache_background_script:
       - ./download_ccache
-      - tmate -S /tmp/tmate.sock new-session -d
-      - tmate -S /tmp/tmate.sock wait tmate-ready
-      - tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}'
-      - tmate -S /tmp/tmate.sock display -p '#{tmate_ssh_ro}'
-      - tmate -S /tmp/tmate.sock display -p '#{tmate_web}'
-      - tmate -S /tmp/tmate.sock display -p '#{tmate_web_ro}'
     sync_script:
       - ./sync
     monitor_background_script:
       - ./monitor
+task:
+  name: Build
+  depends_on:
+    - Test
+  timeout_in: 4h
+  persistent_worker:
+    isolation:
+      container:
+        image: apon77/aosp:latest
+        cpu: 24
+        memory: 60G
     build_script:
       - ./build
+task:
+  name: Upload
+  skip_notifications: true
+  depends_on:
+    - Build
+  timeout_in: 30m
+  container:
+    image: apon77/aosp:latest
+    cpu: .7
+    memory: 2G
     upload_ccache_script:
       - ./upload
