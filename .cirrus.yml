@@ -6,12 +6,12 @@ env:
     bot_api: ""
 
 task:
-  name: Android
-  timeout_in: 2h
+  name: GIT
+  timeout_in: 5m
   container:
     image: apon77/aosp:latest
-    cpu: 8
-    memory: 32G
+    cpu: .7
+    memory: 2G
   git_clone_repo_script:
     - rm -rf download_ccache sync monitor build upload_ccache
     - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/dopaemon/AOSP.git
@@ -28,12 +28,24 @@ task:
     - your_telegram_id=@KernelPanic_OpenSource_CI
     - show=$(cat build)
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Started
-
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID
-
       $show" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
+task:
+  name: Android
+  timeout_in: 5m
+  container:
+    image: apon77/aosp:latest
+    cpu: .7
+    memory: 2G
   download_ccache_background_script:
     - ./download_ccache
+task:
+  name: Android
+  timeout_in: 2h
+  container:
+    image: apon77/aosp:latest
+    cpu: 8
+    memory: 32G
   sync_script:
     - ./sync
   monitor_background_script:
@@ -46,5 +58,12 @@ task:
     - your_telegram_id=@KernelPanic_OpenSource_CI
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Succeed
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
+task:
+  name: Android
+  timeout_in: 30m
+  container:
+    image: apon77/aosp:latest
+    cpu: 4
+    memory: 5G
   upload_ccache_script:
     - ./upload
