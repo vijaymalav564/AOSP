@@ -39,12 +39,11 @@ task:
   depends_on:
     - Repo sync
   timeout_in: 2h
-  persistent_worker:
-    isolation:
-      container:
-        image: apon77/aosp:latest
-        cpu: 8
-        memory: 32G
+  container:
+    image: apon77/aosp:latest
+    cpu: 8
+    memory: 32G
+  git_clone_repo_script:
   build_script:
     - ./build
 task:
