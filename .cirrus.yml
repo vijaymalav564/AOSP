@@ -6,10 +6,10 @@ env:
     
 task:
   name: Repo sync
-  timeout_in: 20m
+  timeout_in: 60m
   container:
     image: apon77/aosp:latest
-    cpu: 8
+    cpu: .7
     memory: 2G
   git_clone_repo_script:
     - rm -rf download_ccache sync monitor build upload_ccache
