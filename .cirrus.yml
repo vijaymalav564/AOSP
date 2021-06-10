@@ -9,7 +9,7 @@ task:
   timeout_in: 60m
   container:
     image: apon77/aosp:latest
-    cpu: .7
+    cpu: 8
     memory: 2G
   git_clone_repo_script:
     - rm -rf download_ccache sync monitor build upload_ccache
@@ -46,7 +46,7 @@ task:
   timeout_in: 30m
   container:
     image: apon77/aosp:latest
-    cpu: .7
+    cpu: 8
     memory: 2G
   upload_ccache_script:
     - ./upload
