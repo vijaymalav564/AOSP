@@ -11,20 +11,20 @@ task:
     image: apon77/aosp:latest
     cpu: .7
     memory: 2G
-    git_clone_repo_script:
-      - rm -rf download_ccache sync monitor build upload_ccache
-      - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/KernelPanic-OpenSource/AOSP
-      - cd AOSP
-      - sudo chmod +x *
-      - mv * ../
-      - cd ..
-      - rm -rf AOSP
-    download_ccache_background_script:
-      - ./download_ccache
-    sync_script:
-      - ./sync
-    monitor_background_script:
-      - ./monitor
+  git_clone_repo_script:
+    - rm -rf download_ccache sync monitor build upload_ccache
+    - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/KernelPanic-OpenSource/AOSP
+    - cd AOSP
+    - sudo chmod +x *
+    - mv * ../
+    - cd ..
+    - rm -rf AOSP
+  download_ccache_background_script:
+    - ./download_ccache
+  sync_script:
+    - ./sync
+  monitor_background_script:
+    - ./monitor
 task:
   name: Build
   depends_on:
@@ -36,8 +36,8 @@ task:
         image: apon77/aosp:latest
         cpu: 24
         memory: 60G
-    build_script:
-      - ./build
+  build_script:
+    - ./build
 task:
   name: Upload
   skip_notifications: true
@@ -48,5 +48,5 @@ task:
     image: apon77/aosp:latest
     cpu: .7
     memory: 2G
-    upload_ccache_script:
-      - ./upload
+  upload_ccache_script:
+    - ./upload
