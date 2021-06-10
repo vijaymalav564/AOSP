@@ -5,24 +5,12 @@ env:
     rclone_config: "ENCRYPTED[52ba5b781cdddab2370f378967c038411d5d343339beaa42bde862925a5f975dfbbb761566b5021f77b27cbfa6c37e16]"
 
 task:
-  name: infomation
+  name: github
   timeout_in: 20m
   container:
     image: apon77/aosp:latest
     cpu: .7
     memory: 2G
-  infomation:
-    - lscpu
-    - free -m
-task:
-  name: Repo sync
-  depends_on:
-    - infomation
-  timeout_in: 20m
-  container:
-    image: apon77/aosp:latest
-    cpu: 8
-    memory: 32G
   git_clone_repo_script:
     - rm -rf download_ccache sync monitor build upload_ccache
     - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/KernelPanic-OpenSource/AOSP
@@ -31,6 +19,15 @@ task:
     - mv * ../
     - cd ..
     - rm -rf AOSP
+task:
+  name: Repo sync
+  depends_on:
+    - github
+  timeout_in: 20m
+  container:
+    image: apon77/aosp:latest
+    cpu: 8
+    memory: 32G
   download_ccache_background_script:
     - ./download_ccache
   sync_script:
