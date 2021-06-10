@@ -6,7 +6,7 @@ env:
     
 task:
   name: Repo sync
-  timeout_in: 60m
+  timeout_in: 20m
   container:
     image: apon77/aosp:latest
     cpu: 8
@@ -29,13 +29,13 @@ task:
   name: Build
   depends_on:
     - Repo sync
-  timeout_in: 4h
+  timeout_in: 2h
   persistent_worker:
     isolation:
       container:
         image: apon77/aosp:latest
-        cpu: 24
-        memory: 60G
+        cpu: 8
+        memory: 32G
   build_script:
     - ./build
 task:
