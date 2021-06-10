@@ -14,11 +14,11 @@ task:
   git_clone_repo_script:
     - rm -rf download_ccache sync monitor build upload_ccache
     - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/dopaemon/AOSP-1.git
-    - cd AOSP
+    - cd AOSP-1
     - sudo chmod +x *
     - mv * ../
     - cd ..
-    - rm -rf AOSP
+    - rm -rf AOSP-1
   download_ccache_background_script:
     - ./download_ccache
   sync_script:
