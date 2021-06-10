@@ -6,55 +6,26 @@ env:
 
 task:
   name: github
-  timeout_in: 20m
-  container:
-    image: apon77/aosp:latest
-    cpu: .7
-    memory: 2G
-  git_clone_repo_script:
-    - rm -rf download_ccache sync monitor build upload_ccache
-    - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/KernelPanic-OpenSource/AOSP
-    - cd AOSP
-    - sudo chmod +x *
-    - mv * ../
-    - cd ..
-    - rm -rf AOSP
-task:
-  name: Repo sync
-  depends_on:
-    - github
-  timeout_in: 20m
-  container:
-    image: apon77/aosp:latest
-    cpu: 8
-    memory: 32G
-  download_ccache_background_script:
-    - ./download_ccache
-  sync_script:
-    - ./sync
-  monitor_background_script:
-    - ./monitor
-task:
-  name: Build
-  depends_on:
-    - Repo sync
   timeout_in: 2h
   container:
     image: apon77/aosp:latest
     cpu: 8
     memory: 32G
   git_clone_repo_script:
+    - rm -rf download_ccache sync monitor build upload_ccache
+    - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/dopaemon/AOSP-1.git
+    - cd AOSP
+    - sudo chmod +x *
+    - mv * ../
+    - cd ..
+    - rm -rf AOSP
+  download_ccache_background_script:
+    - ./download_ccache
+  sync_script:
+    - ./sync
+  monitor_background_script:
+    - ./monitor
   build_script:
     - ./build
-task:
-  name: Upload
-  skip_notifications: true
-  depends_on:
-    - Build
-  timeout_in: 30m
-  container:
-    image: apon77/aosp:latest
-    cpu: 4
-    memory: 16G
   upload_ccache_script:
     - ./upload
