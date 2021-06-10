@@ -28,7 +28,7 @@ task:
 task:
   name: Build
   depends_on:
-    - Test
+    - Repo sync
   timeout_in: 4h
   persistent_worker:
     isolation:
