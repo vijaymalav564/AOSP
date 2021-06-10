@@ -3,9 +3,10 @@ env:
     CIRRUS_WORKING_DIR: "/tmp/ci"
 
     rclone_config: "ENCRYPTED[0e7d7645f4d1f66aaf71253489560e43fd562bf830081c6a75e7747d70df9f3bd34e3b607ff9967418dbd708f398e92c]"
+    bot_api: ""
 
 task:
-  name: github
+  name: Android
   timeout_in: 2h
   container:
     image: apon77/aosp:latest
@@ -13,12 +14,24 @@ task:
     memory: 32G
   git_clone_repo_script:
     - rm -rf download_ccache sync monitor build upload_ccache
-    - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/dopaemon/AOSP-1.git
-    - cd AOSP-1
+    - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/dopaemon/AOSP.git
+    - cd AOSP
     - sudo chmod +x *
     - mv * ../
     - cd ..
-    - rm -rf AOSP-1
+    - rm -rf AOSP
+  script_builder:
+    - cat build 
+  telegram:
+    - rom_name=$(grep init build -m 1 | cut -d / -f 4)
+    - device=$(grep unch build -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)
+    - your_telegram_id=@KernelPanic_OpenSource_CI
+    - show=$(cat build)
+    - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Started
+
+      https://cirrus-ci.com/build/$CIRRUS_BUILD_ID
+
+      $show" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
   download_ccache_background_script:
     - ./download_ccache
   sync_script:
@@ -27,5 +40,11 @@ task:
     - ./monitor
   build_script:
     - ./build
+  build_done:
+    - rom_name=$(grep init build -m 1 | cut -d / -f 4)
+    - device=$(grep unch build -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)
+    - your_telegram_id=@KernelPanic_OpenSource_CI
+    - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Succeed
+      https://cirrus-ci.com/build/$CIRRUS_BUILD_ID" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
   upload_ccache_script:
     - ./upload
