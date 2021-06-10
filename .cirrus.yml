@@ -31,8 +31,10 @@ task:
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID
       $show" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
 task:
-  name: Android
+  name: ccache
   timeout_in: 5m
+  depends_on:
+    - GIT
   container:
     image: apon77/aosp:latest
     cpu: .7
@@ -40,8 +42,10 @@ task:
   download_ccache_background_script:
     - ./download_ccache
 task:
-  name: Android
+  name: build
   timeout_in: 2h
+  depends_on:
+    - ccache
   container:
     image: apon77/aosp:latest
     cpu: 8
@@ -59,8 +63,10 @@ task:
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Succeed
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
 task:
-  name: Android
+  name: Upload
   timeout_in: 30m
+  depends_on:
+    - build
   container:
     image: apon77/aosp:latest
     cpu: 4
