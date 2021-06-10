@@ -11,7 +11,6 @@ task:
     image: apon77/aosp:latest
     cpu: .7
     memory: 2G
-task:
     git_clone_repo_script:
       - rm -rf download_ccache sync monitor build upload_ccache
       - git clone -b LineageOS-18.1-Bak --single-branch https://github.com/KernelPanic-OpenSource/AOSP
