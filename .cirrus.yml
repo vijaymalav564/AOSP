@@ -6,7 +6,7 @@ env:
 
 task:
   name: infomation
-  timeout_in: 5m
+  timeout_in: 20m
   container:
     image: apon77/aosp:latest
     cpu: .7
@@ -14,7 +14,6 @@ task:
   infomation:
     - lscpu
     - free -m
-
 task:
   name: Repo sync
   depends_on:
