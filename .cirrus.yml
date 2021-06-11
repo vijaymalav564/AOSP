@@ -30,8 +30,6 @@ task:
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Started
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID
       $show" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
-  download_ccache_background_script:
-    - ./download_ccache
   sync_script:
     - ./sync
   monitor_background_script:
