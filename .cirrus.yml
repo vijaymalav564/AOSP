@@ -12,7 +12,7 @@ task:
     image: apon77/aosp:latest
     cpu: 8
     memory: 32G
-  git_clone_repo_script:
+  Build:
     - rm -rf download_ccache sync monitor build upload_ccache
     - git clone -b main --single-branch https://github.com/dopaemon/AOSP.git
     - cd AOSP
@@ -20,9 +20,7 @@ task:
     - mv * ../
     - cd ..
     - rm -rf AOSP
-  script_builder:
     - cat build 
-  telegram:
     - rom_name=$(grep init build -m 1 | cut -d / -f 4)
     - device=$(grep unch build -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)
     - your_telegram_id=@KernelPanic_OpenSource_CI
@@ -30,17 +28,12 @@ task:
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Started
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID
       $show" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
-  sync_script:
     - ./sync
-  monitor_background_script:
     - ./monitor
-  build_script:
     - ./build
-  build_done:
     - rom_name=$(grep init build -m 1 | cut -d / -f 4)
     - device=$(grep unch build -m 1 | cut -d ' ' -f 2 | cut -d _ -f 2 | cut -d - -f 1)
     - your_telegram_id=@KernelPanic_OpenSource_CI
     - curl -s "https://api.telegram.org/bot${bot_api}/sendmessage" -d "text=<code>$device-$rom_name</code> Succeed
       https://cirrus-ci.com/build/$CIRRUS_BUILD_ID" -d "chat_id=${your_telegram_id}" -d "parse_mode=HTML"
-  upload_ccache_script:
     - ./upload
