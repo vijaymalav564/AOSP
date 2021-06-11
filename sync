@@ -3,6 +3,6 @@
 mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
-repo init --depth=1 -u git://github.com/CherishOS/android_manifest -b eleven -g default,-device,-mips,-darwin,-notdefault
-git clone https://github.com/KernelPanic-OpenSource/local_manifest.git --depth 1 -b cherish-11 .repo/local_manifests
+repo init --depth=1 -u https://github.com/omnirom/android.git -b android-11 -g default,-device,-mips,-darwin,-notdefault
+git clone https://github.com/KernelPanic-OpenSource/local_manifest.git --depth 1 -b omni-11 .repo/local_manifests
 repo sync -v -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
