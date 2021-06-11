@@ -18,7 +18,7 @@ task:
   name: Build_Upload
   timeout_in: 2h
   depends_on:
-    - status_on_telegram
+    - status
   container:
     image: apon77/aosp:latest
     cpu: 8
