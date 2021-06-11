@@ -7,12 +7,12 @@ env:
 
 task:
   name: Telegram
-  timeout_in: 5
+  timeout_in: 5m
   container:
     image: apon77/aosp:latest
     cpu: .7
     memory: 1G
-  script_builder:
+  telegram:
     - ./telegram
 task:
   name: Build_Upload
