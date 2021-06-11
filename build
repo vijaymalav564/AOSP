@@ -21,6 +21,6 @@ ccache -z
 # make system-api-stubs-docs || echo no problem we need ccache
 # make test-api-stubs-docs || echo no problem, we need ccache
 brunch whyred
-# sleep 65m
-# kill %1
+sleep 35m
+kill %1
 ccache -s
