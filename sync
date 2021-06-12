@@ -13,4 +13,5 @@ git clone --single-branch -b cherish-11 https://github.com/KernelPanic-OpenSourc
 git clone --single-branch -b cherish-11 https://github.com/KernelPanic-OpenSource/android_vendor_xiaomi_sdm660-common.git vendor/xiaomi/sdm660-common
 git clone --single-branch -b android-11 https://github.com/KernelPanic-OpenSource/android_vendor_MiuiCamera.git vendor/MiuiCamera
 git clone --single-branch -b extended-eas https://github.com/attack11/Whyred.git kernel/xiaomi/whyred
-rm -rf packages/apps/Bluetooth
+rm -rvf system/bt
+git clone --single-branch -b lineage-18.1 https://github.com/LineageOS/android_system_bt.git system/bt
