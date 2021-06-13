@@ -3,8 +3,7 @@
 mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
-repo init --depth=1 -u https://android.googlesource.com/platform/manifest.git -b android-11.0.0_r37 -g default,-device,-mips,-darwin,-notdefault
-git clone https://github.com/AOSP-11/local_manifests.git --depth 1 -b 11 .repo/local_manifests
+repo init --depth=1 -u https://github.com/KernelPanic-OpenSource/android.git -b 11 -g default,-device,-mips,-darwin,-notdefault
 repo sync -v -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 
 git clone --single-branch -b AOSP-R https://github.com/KernelPanic-OpenSource/android_device_xiaomi_whyred.git device/xiaomi/whyred
@@ -13,7 +12,3 @@ git clone --single-branch -b cherish-11 https://github.com/KernelPanic-OpenSourc
 git clone --single-branch -b cherish-11 https://github.com/KernelPanic-OpenSource/android_vendor_xiaomi_sdm660-common.git vendor/xiaomi/sdm660-common
 git clone --single-branch -b android-11 https://github.com/KernelPanic-OpenSource/android_vendor_MiuiCamera.git vendor/MiuiCamera
 git clone --single-branch -b extended-eas https://github.com/attack11/Whyred.git kernel/xiaomi/whyred
-rm -rvf packages/apps/Bluetooth
-rm -rvf system/bt
-git clone --single-branch -b lineage-18.1 https://github.com/LineageOS/android_packages_apps_Bluetooth.git packages/apps/Bluetooth
-git clone --single-branch -b lineage-18.1 https://github.com/LineageOS/android_system_bt.git system/bt
