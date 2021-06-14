@@ -21,5 +21,7 @@ ccache -z
 # make api-stubs-docs || echo no problem, we need ccache
 # make system-api-stubs-docs || echo no problem we need ccache
 # make test-api-stubs-docs || echo no problem, we need ccache
-brunch whyred
+mka bacon -j$(nproc --all) &
+sleep 35m
+kill %1
 ccache -s
