@@ -18,8 +18,8 @@ echo "$rclone_config" > ~/.config/rclone/rclone.conf
 
 ls -lash
 
-time rclone copy -v out.tar.gz doraemon:
+time rclone copy -v out.tar.gz d:
 
-cd /tmp/rom/out/target/product/whyred
+# cd /tmp/rom/out/target/product/whyred
 
-time rclone copy -v lineage*whyred.zip doraemon:
+# time rclone copy -v lineage*whyred.zip d:
