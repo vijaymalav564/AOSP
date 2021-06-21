@@ -16,10 +16,10 @@ task:
     - sudo chmod +x *
   telegram_script:
     - ./telegram
-  sync_script:
-    - ./sync
   download_script:
     - ./download_ccache
+  sync_script:
+    - ./sync
   monitor_background_script:
     - ./monitor
   build_script:
