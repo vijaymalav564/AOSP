@@ -13,8 +13,8 @@ env
 
 # rm -rf ccache.tar.gz
 cd /tmp/rom
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1HCOtE0Ox---1P-njXD8j8ownwdlAEfzD' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1HCOtE0Ox---1P-njXD8j8ownwdlAEfzD" -O ccache.tar.gz && rm -rf /tmp/cookies.txt
-time tar xf out.tar.gz
+# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1HCOtE0Ox---1P-njXD8j8ownwdlAEfzD' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1HCOtE0Ox---1P-njXD8j8ownwdlAEfzD" -O ccache.tar.gz && rm -rf /tmp/cookies.txt
+# time tar xf out.tar.gz
 # time aria2c $url -x16 -s50
 # ls -lash
 
