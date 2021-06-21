@@ -18,7 +18,7 @@ echo "$rclone_config" > ~/.config/rclone/rclone.conf
 
 ls -lash
 
-time rclone copy -v out.tar.gz d:
+time rclone copy -v out.tar.gz u:Share/OUT/CherishOS/
 
 # cd /tmp/rom/out/target/product/whyred
 
