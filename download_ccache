@@ -6,16 +6,7 @@ nproc
 cat /etc/os*
 env
 
-# sudo apt install wget -y
-
-# url=https://aosp.polarisdp.workers.dev/ccache.tar.gz
-
-
-# rm -rf ccache.tar.gz
-cd /tmp/rom
-# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1HCOtE0Ox---1P-njXD8j8ownwdlAEfzD' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1HCOtE0Ox---1P-njXD8j8ownwdlAEfzD" -O ccache.tar.gz && rm -rf /tmp/cookies.txt
-# time tar xf out.tar.gz
-# time aria2c $url -x16 -s50
-# ls -lash
-
-rm -rf out.tar.gz
+sudo apt install wget -y
+cd /tmp/
+url=https://mirrors.kernelpanix.workers.dev/0:down/OUT/CherishOS/out.tar.gz
+time aria2c $url -x16 -s50
