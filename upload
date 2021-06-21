@@ -10,7 +10,11 @@ cd /tmp/rom
 
 # time com ccache 1
 
-tar -czvf out.tar.gz out
+# tar -czvf out.tar.gz out
+
+# Create Tar.gz non compress and use 30 Core
+tar cf - out | pigz -1 -p 30 > out.tar.gz
+
 
 mkdir -p ~/.config/rclone
 
