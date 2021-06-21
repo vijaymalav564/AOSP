@@ -15,5 +15,6 @@ git clone --single-branch -b extended-eas https://github.com/attack11/Whyred.git
 
 cd ..
 mv out.tar.gz rom/
+cd rom
 time tar xf out.tar.gz
 rm -rf out.tar.gz
