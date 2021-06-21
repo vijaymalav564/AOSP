@@ -17,4 +17,5 @@ cd ..
 mv out.tar.gz rom/
 cd rom
 time tar xf out.tar.gz
+rm -rvf out/.lock
 rm -rf out.tar.gz
