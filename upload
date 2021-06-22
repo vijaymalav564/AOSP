@@ -8,12 +8,12 @@ com()
     tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
 }
 time com ccache 1
-time rclone copy -v ccache.tar.gz u:Share/OUT/CherishOS/
+time rclone copy -v ccache.tar.gz u:
 
 
 cd /tmp/rom
 tar cf - out | pigz -1 -p 30 > out.tar.gz
-time rclone copy -v out.tar.gz u:Share/OUT/CherishOS/
+time rclone copy -v out.tar.gz u:
 
 # cd /tmp/rom/out/target/product/whyred
 
