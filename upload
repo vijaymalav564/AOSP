@@ -1,27 +1,18 @@
 #!/bin/bash
-
-cd /tmp/rom
-
-
-# com() 
-# { 
-#     tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
-# }
-
-# time com ccache 1
-
-# tar -czvf out.tar.gz out
-
-# Create Tar.gz non compress and use 30 Core
-tar cf - out | pigz -1 -p 30 > out.tar.gz
-
-
-mkdir -p ~/.config/rclone
-
 echo "$rclone_config" > ~/.config/rclone/rclone.conf
 
-ls -lash
+cd /tmp
+com() 
+{ 
+    tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
+}
+time com ccache 1
+time rclone copy -v ccache.tar.gz u:Share/OUT/CherishOS/
 
+
+cd /tmp/rom
+tar cf - out | pigz -1 -p 30 > out.tar.gz
+mkdir -p ~/.config/rclone
 time rclone copy -v out.tar.gz u:Share/OUT/CherishOS/
 
 # cd /tmp/rom/out/target/product/whyred
