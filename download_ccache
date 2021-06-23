@@ -9,9 +9,9 @@ env
 sudo apt update
 sudo apt install wget pigz -y
 cd /tmp/
-url=https://mirrors.kernelpanix.workers.dev/0:down/OUT/CherishOS/out.tar.gz
+# url=https://mirrors.kernelpanix.workers.dev/0:down/OUT/CherishOS/out.tar.gz
 url2=https://mirrors.kernelpanix.workers.dev/0:down/OUT/CherishOS/ccache.tar.gz
-time aria2c $url -x16 -s50
+# time aria2c $url -x16 -s50
 time aria2c $url2 -x16 -s50
 time tar xf ccache.tar.gz
 rm -rf ccache.tar.gz
