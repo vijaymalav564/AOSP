@@ -6,7 +6,7 @@ on:
       - '.git*'
 
 jobs:
-  test:
+  Git And Run:
     runs-on: ubuntu-latest
     container: potyarkin/cirrus-run
     env:
@@ -14,6 +14,7 @@ jobs:
       CIRRUS_GITHUB_REPO: dopaemon/AOSP
       CIRRUS_SHOW_BUILD_LOG: always
     steps:
+      - run: sudo apt install git -y
       - run: git clone https://github.com/dopaemon/AOSP
       - run: cd AOSP
       - run: cirrus-run .cirrus.yml
