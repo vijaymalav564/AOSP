@@ -6,13 +6,12 @@ task:
     labels:
       os: linux
       arch: amd64
-  script: echo "running on-premise"
   name: Build_Upload
-  timeout_in: 2h
+  timeout_in: 4h
   container:
     image: apon77/aosp:latest
-    cpu: 8
-    memory: 32G
+    cpu: 36
+    memory: 68G
   chmod_script:
     - sudo chmod +x *
   sync_script:
