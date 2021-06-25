@@ -7,7 +7,7 @@ on:
 
 jobs:
   start:
-    runs-on: ubuntu-latest
+    runs-on: apon77/aosp:latest
     container: potyarkin/cirrus-run
     env:
       CIRRUS_API_TOKEN: 1nq0o9upajl4m2i6frfqrvu1hbj1l2hmslpq4t9
