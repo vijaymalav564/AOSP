@@ -1,11 +1,13 @@
 env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
+    
 task:
   persistent_worker:
     labels:
       os: linux
       arch: amd64
+      
   name: Build_Upload
   timeout_in: 4h
   container:
