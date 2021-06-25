@@ -7,14 +7,12 @@ on:
 
 jobs:
   start:
-    runs-on: apon77/aosp:latest
+    runs-on: ubuntu-latest
     container: potyarkin/cirrus-run
     env:
       CIRRUS_API_TOKEN: 1nq0o9upajl4m2i6frfqrvu1hbj1l2hmslpq4t9
       CIRRUS_GITHUB_REPO: dopaemon/AOSP
       CIRRUS_SHOW_BUILD_LOG: always
     steps:
-      - run: apt install git -y
-      - run: git clone https://github.com/dopaemon/AOSP
-      - run: cd AOSP
+      - run: ls
       - run: cirrus-run .cirrus.yml
