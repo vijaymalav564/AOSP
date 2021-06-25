@@ -6,7 +6,7 @@ on:
       - '.git*'
 
 jobs:
-  Git And Run:
+  start:
     runs-on: ubuntu-latest
     container: potyarkin/cirrus-run
     env:
