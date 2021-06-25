@@ -14,5 +14,6 @@ jobs:
       CIRRUS_GITHUB_REPO: dopaemon/AOSP
       CIRRUS_SHOW_BUILD_LOG: always
     steps:
-      - uses: actions/checkout@v1
-      - run:  cirrus-run .cirrus.yml
+      - run: git clone https://github.com/dopaemon/AOSP
+      - run: cd AOSP
+      - run: cirrus-run .cirrus.yml
