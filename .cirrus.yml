@@ -13,6 +13,7 @@ task:
     cpu: 8
     memory: 32G
   chmod_script:
+    - whoami
     - sudo chmod +x *
   sync_script:
     - ./sync
