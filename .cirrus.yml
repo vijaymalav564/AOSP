@@ -13,8 +13,8 @@ task:
   timeout_in: 4h
   container:
     image: apon77/aosp:latest
-    cpu: 36
-    memory: 68G
+    cpu: 8
+    memory: 32G
   chmod_script:
     - sudo chmod +x *
   sync_script:
