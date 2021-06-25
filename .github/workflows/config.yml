@@ -14,4 +14,4 @@ jobs:
       CIRRUS_GITHUB_REPO: dopaemon/AOSP
       CIRRUS_SHOW_BUILD_LOG: always
     steps:
-      - run:  cirrus-run cirrus.yml
+      - run:  cirrus-run .cirrus.yml
