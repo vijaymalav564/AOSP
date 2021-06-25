@@ -1,6 +1,7 @@
 env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
+    BUILD_HOSTNAME: "e8f486553f26"
     
 task:
   persistent_worker:
