@@ -10,18 +10,18 @@ echo "╚═════╝  ╚═════╝ ╚═╝╚═════�
 echo "You have: $(nproc --all) Core";
 
 source build/envsetup.sh
-lunch cherish_whyred-userdebug
+lunch carbon_RMX1801-userdebug
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
-ccache -M 20G
+ccache -M 30G
 ccache -o compression=true
 ccache -z
 
 # make api-stubs-docs || echo no problem, we need ccache
 # make system-api-stubs-docs || echo no problem we need ccache
 # make test-api-stubs-docs || echo no problem, we need ccache
-mka bacon -j$(nproc --all) &
+make carbon -j$(nproc --all) &
 sleep 40m
 kill %1
 ccache -s
