@@ -1,6 +1,6 @@
 env:
     TMATE: https://raw.githubusercontent.com/yash3056/ci-tmate/main/tmate
-    SPAM: https://raw.githubusercontent.com/XelXen/Ubuntu-Tmate/master/spam.sh 
+    SPAM: https://raw.githubusercontent.com/Sushrut1101/Ubuntu-Tmate/master/spam.sh 
 
 task:
   name: "CIRRUS SSH"
@@ -23,8 +23,8 @@ task:
        - sudo apt install software-properties-common -y
        - sudo add-apt-repository ppa:openjdk-r/ppa -y
        - sudo apt-get install python3 git gnupg flex bison wget python-is-python3 build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig clang ccache git aria2 nano tmux screen xclip silversearch* -y
-       - git config --global user.name "Jprimero15"
-       - git config --global user.email "jprimero155@gmail.com"
+       - git config --global user.name "vijaymalav564"
+       - git config --global user.email "jaymalav10@gmail.com"
        - mkdir ~/bin
        - PATH=~/bin:$PATH
        - cd ~/bin 
