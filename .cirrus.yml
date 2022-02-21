@@ -17,4 +17,4 @@ task:
       memory: 32G
 
   build_script:
-      - git clone https://$GH_TOKEN@github.com/vijaymalav564/https://github.com/vijaymalav564/Railway-Ngrok vps && cd vps && sudo docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t vps && sudo docker run vps 
+      - git clone https://$GH_TOKEN@github.com/vijaymalav564/Railway-Ngrok vps && cd vps && sudo docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t vps && sudo docker run vps 
